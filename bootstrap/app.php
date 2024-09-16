@@ -3,6 +3,8 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+// use App\Http\Middleware\AdminMiddleware;
+
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -11,8 +13,14 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        // $middleware->append(AdminMiddleware::class);
+        $middleware->alias([
+        'admin' => \App\Http\Middleware\AdminMiddleware::class,
+        ]);
     })
+    // ->withRouteMiddleware([
+    //     'admin' => AdminMiddleware::class, // Daftarkan middleware 'admin' di sini
+    // ])
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();

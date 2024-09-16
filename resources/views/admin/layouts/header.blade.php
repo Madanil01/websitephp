@@ -5,6 +5,9 @@
       <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
+      <a href="/" class="nav-link">Landing Page</a>
+    </li>
+    <li class="nav-item d-none d-sm-inline-block">
       <a href="/admin" class="nav-link">Home</a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
@@ -109,6 +112,17 @@
       <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
         <i class="fas fa-th-large"></i>
       </a>
+    </li>
+    <li class="nav-item">
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
+        @csrf
+        <button type="submit" class="nav-link" role="button" style="background: none; border: none; color: inherit; cursor: pointer;">
+          Sign Out
+          <i class="fas fa-sign-out-alt"></i>
+        </button>
+      </form>
+    </li>
+      
     </li>
   </ul>
 </nav>

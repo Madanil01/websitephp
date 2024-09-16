@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Login </title>
+  <title>Register (v2)</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -19,22 +19,30 @@
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="/lte/index2.html" class="h1"><b>LOGIN</b></a>
+      <a href="/lte/index2.html" class="h1"><b>REGISTER</b></a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Website UPBU</p>
+      <p class="login-box-msg">Register a new membership</p>
 
-@error('loginError')
+@error('registerError')
     <div class="alert alert-danger">
-        <strong >Error</strong>
+        <strong>Error</strong>
         <p>{{ $message }}</p>
     </div>
 @enderror
 
-      <form method="post">
+      <form method="post" action="{{ route('register') }}">
         @csrf
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Email" name="email">
+          <input type="text" class="form-control" placeholder="Full Name" name="name" required>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="email" class="form-control" placeholder="Email" name="email" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -42,7 +50,15 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password" name="password">
+          <input type="password" class="form-control" placeholder="Password" name="password" required>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" placeholder="Retype password" name="password_confirmation" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -50,17 +66,17 @@
           </div>
         </div>
         <div class="row">
-          
-          <!-- /.col -->
           <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
           </div>
-          <!-- /.col -->
         </div>
       </form>
 
-   
-    
+      <p class="mb-1">
+        <a href="{{ route('login') }}">I already have a membership</a>
+      </p>
+
+    </div>
     <!-- /.card-body -->
   </div>
   <!-- /.card -->

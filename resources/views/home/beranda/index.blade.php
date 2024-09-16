@@ -11,47 +11,25 @@
   <div>
     <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      @foreach($kontents as $index => $kontent)
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="{{ $index }}" class="{{ $index === 0 ? 'active' : '' }}" aria-current="true" aria-label="Slide {{ $index + 1 }}"></button>
+      @endforeach
     </div>
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="wrapper-img-banner">    
-          <img src="/img/1.jpg" class="img-banner" alt="">
-        </div>
-        <div class="container">
-          <div class="carousel-caption text-start">
-            <h1>Example headline TEST.</h1>
-            <p>Some representative placeholder content for the first slide of the carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
-          </div>
-        </div>
-      </div>
 
-      <div class="carousel-item">
-        <div class="wrapper-img-banner">    
-          <img src="/img/2.jpg" class="img-banner" alt="">
-        </div>
-        <div class="container">
-          <div class="carousel-caption text-start">
-            <h1>Second Slide</h1>
-            <p>Some representative placeholder content for the second slide of the carousel.</p>
+      @foreach($kontents as $index => $kontent)
+          <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+            <div class="wrapper-img-banner">
+              <img src="{{ asset('storage/' . $kontent->image) }}" class="img-banner" alt="Slide {{ $index + 1 }}">
+            </div>
+            <div class="container">
+              <div class="carousel-caption text-start">
+                <h1>{{ $kontent->title }}</h1>
+                <p>{{ $kontent->description }}</p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-
-      <div class="carousel-item">
-        <div class="wrapper-img-banner">    
-          <img src="/img/3.jpg" class="img-banner" alt="">
-        </div>
-        <div class="container">
-          <div class="carousel-caption text-start">
-            <h1>Third Slide</h1>
-            <p>Some representative placeholder content for the third slide of the carousel.</p>
-          </div>
-        </div>
-      </div>
+        @endforeach
     </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
@@ -69,4 +47,5 @@
     <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur accusamus nisi architecto facere temporibus, fugiat neque consequuntur dolore? Culpa fuga iusto voluptas possimus reiciendis est, tenetur debitis, numquam non distinctio doloribus consequuntur nobis perspiciatis? Itaque velit obcaecati eius dolore dicta amet corporis nisi nobis, cupiditate debitis asperiores optio repudiandae reprehenderit architecto beatae ex autem perspiciatis animi! Ea assumenda repellat ex itaque ipsa adipisci quisquam delectus dolores vitae tempore in dolorum corporis reprehenderit earum iusto molestiae illum officia, magnam eos vero! Tempore quis tenetur in temporibus recusandae deleniti libero veniam necessitatibus quos corrupti, soluta, reprehenderit sequi dolor error maxime, repudiandae delectus!</p>
   </div>
   </div>
+  
 </div>
