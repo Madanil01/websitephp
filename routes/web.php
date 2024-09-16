@@ -39,6 +39,14 @@ Route::get('/ppid', function(){
     ];
     return view('home.layouts.wrapper',$data);
 });
+Route::get('/ppid/visi-misi', function(){
+    $data = [
+        'content' => 'home/PPID/visi_misi', 
+        'visis' => Visi::whereNull('deleted_at')->get(),
+        'misis' => Misi::whereNull('deleted_at')->get(),
+    ];
+    return view('home.layouts.wrapper',$data);
+});
    
 Route::get('/infopublik', function(){
     $data = [
@@ -58,6 +66,7 @@ Route::get('/layananinfo', function(){
 Route::get('/profile', function(){
     $data = [
         'content' => 'home/profile/index'
+
     ];
     return view('home.layouts.wrapper',$data);
 });

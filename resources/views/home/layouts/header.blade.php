@@ -32,7 +32,7 @@
               <!-- <li><hr class="dropdown-divider"></li> -->
               <li><a class="dropdown-item" href="#">Profile PPID</a></li>
               <li><a class="dropdown-item" href="#">Tugas Dan Fungi</a></li>
-              <li><a class="dropdown-item" href="#">Visi Misi</a></li>
+              <li><a class="dropdown-item" href="/ppid/visi-misi">Visi Misi</a></li>
               <li><a class="dropdown-item" href="#">Regulasi</a></li>
               <li><a class="dropdown-item" href="#">Kontak</a></li>
             </ul>
