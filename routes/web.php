@@ -64,7 +64,10 @@ Route::prefix('/admin')->group(function () {
     Route::get('/', function(){
         return view('admin.layouts.wrapper');
     });
-    Route::resource('/user', AdminUserController::class);
+    // Route::get('/user', function(){
+    //     return view('admin.layouts.wrapper');
+    // });
+    Route::get('/user', [AdminUserController::class, 'index'])->name('user_page');
 });
  
 

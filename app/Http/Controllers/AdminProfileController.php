@@ -14,7 +14,7 @@ class AdminProfileController extends Controller
     {
         $data = [
             'title' => 'Manajemen Profile',
-            'profile' => Profile::get(),
+            // 'profile' => Profile::get(),
             'content' => 'admin/profile/index'
         ];
         return view('admin/layouts/wrapper', $data);
